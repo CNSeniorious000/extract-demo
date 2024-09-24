@@ -1,0 +1,21 @@
+<| system |>
+你的任务是从下面这篇关于{{ topic }}的文章提取它对它提到的各种{{ topic }}的态度。
+
+以下面的格式，输出一个 JSON 对象：
+
+```ts
+interface Output {
+  attitudes: {
+    attitude: "positive" | "neutral" | "negative";
+    entity: string;
+    text: string;
+  }[];
+};
+```
+
+其中，entity 代表文章中被评价的客体，text 是做出这个评价的原文句子。
+
+所有字段用文章的语言和原本的表述返回，不要做任何修改。
+
+<| user |>
+{{ content }}
