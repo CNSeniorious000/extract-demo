@@ -5,7 +5,10 @@ from pydantic import ValidationError
 
 from src.api import ClassifyOutput, ExtractOutput, Model, classify, extract
 
-app = FastAPI(title="Extractor API")
+app = FastAPI(
+    title="LLM News analysis API",
+    description="[Repo](https://github.com/CNSeniorious000/extract-demo) / [Demo](https://extract-demo.up.railway.app/docs)",
+)
 
 
 @app.post("/classify")
