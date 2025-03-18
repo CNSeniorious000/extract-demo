@@ -1,6 +1,7 @@
 from json import loads
 
 from fastapi import Body, FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 from pydantic import ValidationError
 
 from src.api import ClassifyOutput, ExtractOutput, Model, classify, extract
@@ -33,3 +34,6 @@ def extraction(
         return extract(topic, content, llm)
     except ValidationError as e:
         raise HTTPException(500, loads(e.json(include_input=False))) from e
+
+
+app.get("/", include_in_schema=False)(lambda: RedirectResponse("/docs"))
