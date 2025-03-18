@@ -9,5 +9,5 @@ class Attitude(BaseModel):
     text: str
 
 
-class Output(BaseModel):
+class ExtractOutput(BaseModel):
     attitudes: list[Attitude]

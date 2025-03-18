@@ -5,4 +5,5 @@ from promplate import Template
 root = Path(__file__).parent
 
 
-prompt_template = Template.read(root / "prompt.j2")
+classify_template = Template.read(root / "classify.j2")
+extract_template = Template.read(root / "extract.j2")

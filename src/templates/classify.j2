@@ -1,0 +1,27 @@
+<| system |>
+{{ article }}
+
+<| user |>
+从这篇文章提取它对它的内容和情感。不要停留在表面，要理解文字中隐含的意思。
+
+按下面的 typescript 定义，以 JSON 格式返回结果，不需要 markdown 标记包裹：
+
+```ts
+{
+{% if content -%}
+  content: {         // 原文信息
+    full: string;    // 完整内容文本，去除广告等
+    summary: string; // 内容摘要
+  };
+{% endif -%}
+  attitudes: {
+    [key: "china" | "taiwan" | "hongkong" | "usa"]: { // 作者本人对这些地区的政治态度
+      attitude: "positive" | "negative" | "neutral";
+      citation: string[];
+    } | null;
+  } | null; // 如果文章不涉证，则本项留空
+  emotion: -2 | -1 | 0 | 1 | 2; // 这篇文章整体的情绪值
+};
+```
+
+请注意辨别，attitudes 指的是新闻作者本人对这些地区的政治态度，而不是文中提到的人物对这些地区的态度。
