@@ -4,7 +4,7 @@ from promplate.llm.openai import ChatGenerate
 load_dotenv(override=True)
 
 generate = ChatGenerate().bind(
-    model="gpt-4o",  # most efficiency
+    model="gpt-4o-mini",
     response_format={"type": "json_object"},  # for structural output
     temperature=0,
 )
