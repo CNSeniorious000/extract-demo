@@ -9,7 +9,7 @@ dependencies = [
     "promplate[openai]~=0.3.5.0",
     "promptools[validation]~=0.1.3.5",
     "python-dotenv~=1.1.0",
-    "ruff~=0.12.0",
+    "ruff~=0.13.2",
     "uvicorn~=0.37.0",
 ]
 
